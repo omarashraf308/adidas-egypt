@@ -1,0 +1,271 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(#111, #222);
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    padding: 30px 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    -webkit-clip-path: circle(40% at right 70%);
+    clip-path: circle(40% at right 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    min-height: 80vh;
+    min-height: 80dvh;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+nav .logo {
+    color: antiquewhite;
+    text-decoration: none;
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+/* Main Content */
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: calc(80vh - 80px);
+    min-height: calc(80dvh - 80px);
+    width: 80%;
+    margin: auto;
+    gap: 40px;
+    padding: 30px 0;
+}
+
+.content .text {
+    color: white;
+    width: 50%;
+    min-width: 0;
+}
+
+.content .text h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.content .text p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.content .image {
+    width: 50%;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+
+    nav,
+    .content {
+        width: 85%;
+    }
+
+    .content {
+        gap: 25px;
+    }
+
+    .content .text h2 {
+        font-size: 30px;
+    }
+
+    .content .text p {
+        font-size: 16px;
+    }
+
+    .content .image img {
+        max-width: 330px;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+
+    body::after {
+        -webkit-clip-path: circle(35% at right bottom);
+        clip-path: circle(35% at right bottom);
+    }
+
+    .container {
+        width: 92%;
+        min-height: auto;
+        border-radius: 15px;
+    }
+
+    nav {
+        width: 90%;
+        flex-direction: column;
+        gap: 18px;
+        padding: 22px 0;
+    }
+
+    nav .logo {
+        font-size: 28px;
+    }
+
+    nav ul {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .content {
+        width: 85%;
+        min-height: auto;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 25px;
+        padding: 25px 0 35px;
+    }
+
+    .content .text,
+    .content .image {
+        width: 100%;
+    }
+
+    .content .text h2 {
+        font-size: 27px;
+        letter-spacing: 1px;
+    }
+
+    .content .text p {
+        font-size: 14px;
+        line-height: 1.7;
+        letter-spacing: 0;
+    }
+
+    .content .image img {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* Small Mobile */
+
+@media (max-width: 360px) {
+    .container {
+        width: 95%;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    .content .text h2 {
+        font-size: 23px;
+    }
+
+    .content .text p {
+        font-size: 13px;
+    }
+
+    .content .image img {
+        max-width: 230px;
+    }
+}
